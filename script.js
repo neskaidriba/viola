@@ -24,4 +24,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         typing(); // Запуск анимации
     });
+
+    // Функция для появления случайных слов
+    const words = ["Невероятна", "Шедевр", "Прекрасна", "Умница", "Добрая"];
+    const showRandomWord = () => {
+        const randomWord = words[Math.floor(Math.random() * words.length)];
+        const wordElement = document.createElement('div');
+        wordElement.classList.add('floating-word');
+        wordElement.innerText = randomWord;
+
+        // Установка случайной позиции
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        wordElement.style.left = `${x}px`;
+        wordElement.style.top = `${y}px`;
+
+        document.body.appendChild(wordElement);
+
+        // Показать слово
+        setTimeout(() => {
+            wordElement.style.opacity = 1;
+        }, 100);
+
+        // Скрыть слово через 2 секунды
+        setTimeout(() => {
+            wordElement.style.opacity = 0;
+            setTimeout(() => {
+                wordElement.remove(); // Удаляем элемент после исчезновения
+            }, 500);
+        }, 2000);
+    };
+
+    // Запуск функции каждые 5 секунд
+    setInterval(showRandomWord, 5000);
 });
