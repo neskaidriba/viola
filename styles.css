@@ -11,47 +11,13 @@ body {
 }
 
 /* Плавающие слова */
-.floating-words {
+.floating-word {
     position: fixed;
-    width: 150px; /* Увеличение ширины */
-    overflow: hidden;
     color: #e5739b;
     font-weight: bold;
-    font-size: 2em; /* Увеличение размера шрифта */
-}
-
-.left {
-    left: 0;
-    top: -100px;
-}
-
-.right {
-    right: 0;
-    top: -100px;
-}
-
-.floating-words span {
-    display: block;
-    opacity: 0;
-    animation: float 8s linear infinite; /* Уменьшена продолжительность анимации для более частого появления */
-}
-
-/* Анимация для слов */
-@keyframes float {
-    0% {
-        transform: translateY(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh); /* Летают вниз до конца экрана */
-        opacity: 0;
-    }
+    font-size: 1em; /* Размер слова изменён на меньший, но читаемый */
+    opacity: 0; /* Изначально невидимо */
+    transition: opacity 0.5s ease; /* Плавное исчезновение/появление */
 }
 
 /* Главное заголовок и разделы */
